@@ -119,7 +119,9 @@ def filteredData():
         "Phone_Number":df["Phone Number"].to_list(),
         "Customer_Address":df["Address"].to_list()
     }
-    return jsonify(data)
+    response=jsonify(data)
+    response.headers.add("Access-Control-Allow-Origin","*")
+    return response
 
 if __name__=="__main__":
     app.run(debug=True)
