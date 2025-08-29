@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <title>Data Processing</title>
+    </head>
+    <body onload="getData()">
+        <div>
+            <h1>Data fetched from API</h1>
+            <pre id="test"></pre>
+        </div>
+        <script>
+            async function getData(){
+                const initial=await fetch("http://127.0.0.1:5000/table")
+                const data=await initial.json()
+                console.log(JSON.stringify(data,null,2))
+                const tst=document.getElementById("test")
+                tst.innerHTML=JSON.stringify(data,null,2)
+            }
+        </script>
+    </body>
+</html>
